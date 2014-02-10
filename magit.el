@@ -7505,6 +7505,10 @@ non-nil, then autocompletion will offer directory names."
                   append (magit-list-repos* entry (1- depth))))))
 
 (defun magit-list-repos-remove-conflicts (alist)
+  "Accepts an ALIST mapping KEYs to VALUEs, where each KEY is a
+suffix of its VALUE, and return a similar alist where each
+key has exactly one associated value."
+  ;; FIXME: This is similar in intent to the library `uniquify'.
   (let ((dict (make-hash-table :test 'equal))
         (alist (delete-dups alist))
         (result nil))
