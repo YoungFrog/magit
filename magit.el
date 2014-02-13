@@ -2334,6 +2334,10 @@ involving HEAD."
                         branch)))))
 
 (defun magit-read-rev-range (op &optional def-beg def-end)
+  "Interactively request a range of revisions.
+OP is the operation for which the range is asked. DEF-BEG end
+DEF-END are the default values for beginning and end of range
+respectively."
   (let ((beg (magit-read-rev (format "%s range or start" op) def-beg)))
     (save-match-data
       (if (string-match "^\\(.+\\)\\.\\.\\(.+\\)$" beg)
